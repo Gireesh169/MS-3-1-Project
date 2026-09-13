@@ -1,0 +1,98 @@
+# =========================
+# Java / Maven
+# =========================
+
+target/
+*.class
+*.jar
+*.war
+*.ear
+
+# Maven
+.mvn/
+mvnw
+mvnw.cmd
+
+# =========================
+# Spring Boot
+# =========================
+
+*.log
+logs/
+*.pid
+
+# =========================
+# IDE - Eclipse / STS
+# =========================
+
+.classpath
+.project
+.settings/
+.factorypath
+.springBeans
+.sts4-cache/
+
+# =========================
+# IDE - IntelliJ IDEA
+# =========================
+
+.idea/
+*.iml
+*.iws
+*.ipr
+
+# =========================
+# IDE - VS Code
+# =========================
+
+.vscode/
+.history/
+
+# =========================
+# OS files
+# =========================
+
+.DS_Store
+.DS_Store?
+._*
+.Spotlight-V100
+.Trashes
+Thumbs.db
+Desktop.ini
+
+# =========================
+# Environment / Secrets
+# =========================
+
+.env
+.env.*
+*.env
+
+# Local configuration containing passwords/secrets
+application-local.properties
+application-local.yml
+application-*.properties
+application-*.yml
+
+# =========================
+# Frontend - Node
+# =========================
+
+node_modules/
+dist/
+build/
+.next/
+.nuxt/
+coverage/
+.npm/
+*.tsbuildinfo
+
+# =========================
+# Temporary files
+# =========================
+
+*.tmp
+*.temp
+*.swp
+*.swo
+*~
