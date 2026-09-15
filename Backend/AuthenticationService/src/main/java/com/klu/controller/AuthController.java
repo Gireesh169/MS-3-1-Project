@@ -7,11 +7,11 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.klu.dto.LoginInRequest;
-import com.klu.entity.User;
+import com.klu.dto.SignUpRequest;
 import com.klu.service.AuthService;
 
 @RestController
-@RequestMapping("/auth")
+@RequestMapping("/api/auth")
 public class AuthController {
 
     private final AuthService authService;
@@ -22,9 +22,9 @@ public class AuthController {
 
     @PostMapping("/register")
     public String register(
-            @RequestBody User user) {
+            @RequestBody SignUpRequest request) {
 
-        authService.register(user);
+        authService.register(request);
 
         return "User registered successfully";
     }

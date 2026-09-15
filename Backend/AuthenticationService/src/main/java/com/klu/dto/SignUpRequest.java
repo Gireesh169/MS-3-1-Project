@@ -10,14 +10,16 @@ import lombok.Data;
 @Data
 public class SignUpRequest {
 
-    @NotBlank(message = "Username is required")
-    private String username;
+	@NotBlank
+	private String username;
 
-    @NotBlank(message = "Password is required")
-    @Size(min = 6, message = "Password must contain at least 6 characters")
-    private String password;
+	@NotBlank
+	private String email;
 
-    @NotNull(message = "Role is required")
-    private Role role;
+	@NotBlank
+	@Size(min = 6)
+	private String password;
 
+	@NotNull
+	private Role role;
 }

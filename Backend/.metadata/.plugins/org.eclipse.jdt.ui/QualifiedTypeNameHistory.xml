@@ -4,4 +4,7 @@
     <fullyQualifiedTypeName name="jakarta.persistence.Id"/>
     <fullyQualifiedTypeName name="jakarta.persistence.EnumType"/>
     <fullyQualifiedTypeName name="com.klu.enums.Role"/>
+    <fullyQualifiedTypeName name="com.klu.entity.User"/>
+    <fullyQualifiedTypeName name="io.jsonwebtoken.io.IOException"/>
+    <fullyQualifiedTypeName name="io.jsonwebtoken.lang.Collections"/>
 </qualifiedTypeNameHistroy>

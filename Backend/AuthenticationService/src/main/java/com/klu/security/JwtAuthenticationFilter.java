@@ -1,6 +1,7 @@
 package com.klu.security;
 
 import java.io.IOException;
+import java.util.Collections;
 
 import org.springframework.security.authentication.UsernamePasswordAuthenticationToken;
 import org.springframework.security.core.context.SecurityContextHolder;
@@ -30,27 +31,27 @@ public class JwtAuthenticationFilter extends OncePerRequestFilter {
 
         String authHeader = request.getHeader("Authorization");
 
-        // No token
+        // No JWT token
         if (authHeader == null || !authHeader.startsWith("Bearer ")) {
             filterChain.doFilter(request, response);
             return;
         }
 
-        // Remove "Bearer "
+        // Extract JWT
         String token = authHeader.substring(7);
 
         try {
 
+            // Validate JWT
             if (jwtService.isTokenValid(token)) {
 
-                String username =
-                        jwtService.extractUsername(token);
+                String username = jwtService.extractUsername(token);
 
                 UsernamePasswordAuthenticationToken authentication =
                         new UsernamePasswordAuthenticationToken(
                                 username,
                                 null,
-                                null
+                                Collections.emptyList()
                         );
 
                 SecurityContextHolder
@@ -59,7 +60,6 @@ public class JwtAuthenticationFilter extends OncePerRequestFilter {
             }
 
         } catch (Exception e) {
-
             SecurityContextHolder.clearContext();
         }
 
