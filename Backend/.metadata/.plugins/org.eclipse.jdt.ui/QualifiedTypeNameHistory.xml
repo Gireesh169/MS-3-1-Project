@@ -7,4 +7,5 @@
     <fullyQualifiedTypeName name="com.klu.entity.User"/>
     <fullyQualifiedTypeName name="io.jsonwebtoken.io.IOException"/>
     <fullyQualifiedTypeName name="io.jsonwebtoken.lang.Collections"/>
+    <fullyQualifiedTypeName name="jdk.jfr.ContentType"/>
 </qualifiedTypeNameHistroy>
