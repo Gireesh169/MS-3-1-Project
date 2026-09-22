@@ -28,7 +28,7 @@ public class JwtService {
         this.expirationMs = expirationMs;
     }
 
-    public String generateToken(String username) {
+    public String generateToken(String username, String role) {
 
         Date now = new Date();
 
@@ -38,10 +38,15 @@ public class JwtService {
 
         return Jwts.builder()
                 .subject(username)
+                .claim("role", role)
                 .issuedAt(now)
                 .expiration(expiration)
                 .signWith(key)
                 .compact();
+    }
+
+    public String generateToken(String username) {
+        return generateToken(username, "USER");
     }
 
     public String extractUsername(String token) {
@@ -52,6 +57,20 @@ public class JwtService {
                 .parseSignedClaims(token)
                 .getPayload()
                 .getSubject();
+    }
+
+    public String extractRole(String token) {
+
+        try {
+            return Jwts.parser()
+                    .verifyWith(key)
+                    .build()
+                    .parseSignedClaims(token)
+                    .getPayload()
+                    .get("role", String.class);
+        } catch (Exception e) {
+            return null;
+        }
     }
 
     public boolean isTokenValid(String token) {

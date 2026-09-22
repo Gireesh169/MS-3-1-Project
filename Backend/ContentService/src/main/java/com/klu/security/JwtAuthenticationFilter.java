@@ -18,10 +18,10 @@ import jakarta.servlet.http.HttpServletResponse;
 @Component
 public class JwtAuthenticationFilter extends OncePerRequestFilter {
 
-    private final JwtService jwtService;
+    private final JwtUtil jwtUtil;
 
-    public JwtAuthenticationFilter(JwtService jwtService) {
-        this.jwtService = jwtService;
+    public JwtAuthenticationFilter(JwtUtil jwtUtil) {
+        this.jwtUtil = jwtUtil;
     }
 
     @Override
@@ -33,26 +33,24 @@ public class JwtAuthenticationFilter extends OncePerRequestFilter {
 
         String authHeader = request.getHeader("Authorization");
 
-        // No JWT token
+        // No Bearer token provided
         if (authHeader == null || !authHeader.startsWith("Bearer ")) {
             filterChain.doFilter(request, response);
             return;
         }
 
-        // Extract JWT
         String token = authHeader.substring(7);
 
         try {
-            // Validate JWT
-            if (!jwtService.isTokenValid(token)) {
+            if (!jwtUtil.isTokenValid(token)) {
                 response.setStatus(HttpServletResponse.SC_UNAUTHORIZED);
                 response.setContentType("application/json");
                 response.getWriter().write("{\"message\":\"Invalid or expired token\",\"status\":401}");
                 return;
             }
 
-            String username = jwtService.extractUsername(token);
-            String role = jwtService.extractRole(token);
+            String username = jwtUtil.extractUsername(token);
+            String role = jwtUtil.extractRole(token);
 
             List<SimpleGrantedAuthority> authorities = Collections.emptyList();
             if (role != null && !role.isBlank()) {
@@ -67,9 +65,7 @@ public class JwtAuthenticationFilter extends OncePerRequestFilter {
                             authorities
                     );
 
-            SecurityContextHolder
-                    .getContext()
-                    .setAuthentication(authentication);
+            SecurityContextHolder.getContext().setAuthentication(authentication);
 
         } catch (Exception e) {
             SecurityContextHolder.clearContext();
