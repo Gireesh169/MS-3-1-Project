@@ -8,7 +8,7 @@
 	"variable": [
 		{
 			"key": "gateway_url",
-			"value": "http://localhost:8080",
+			"value": "http://localhost:8090",
 			"type": "string"
 		},
 		{
@@ -253,7 +253,38 @@
 			"description": "Protected content endpoints. Requires Authorization: Bearer {{jwt_token}}.",
 			"item": [
 				{
-					"name": "2.1 Upload Content (Multipart)",
+					"name": "2.1 Create Content (JSON Body)",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer {{jwt_token}}"
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"title\": \"Distributed Systems Principles\",\n    \"author\": \"Subhani\",\n    \"description\": \"Comprehensive guide on SOA and microservice architectures.\",\n    \"type\": \"BOOK\"\n}"
+						},
+						"url": {
+							"raw": "{{gateway_url}}/content",
+							"host": [
+								"{{gateway_url}}"
+							],
+							"path": [
+								"content"
+							]
+						},
+						"description": "Creates a content entry by sending simple JSON with Bearer JWT."
+					},
+					"response": []
+				},
+				{
+					"name": "2.2 Upload Content (Multipart with File)",
 					"request": {
 						"method": "POST",
 						"header": [

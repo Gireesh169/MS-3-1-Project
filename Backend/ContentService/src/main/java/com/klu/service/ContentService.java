@@ -61,6 +61,22 @@ public class ContentService {
         return repository.save(content);
     }
 
+    public Content create(ContentRequest request) {
+        Content content = new Content();
+
+        content.setTitle(request.getTitle());
+        content.setAuthor(request.getAuthor());
+        content.setDescription(request.getDescription());
+        content.setType(request.getType());
+
+        content.setFileName("none");
+        content.setFilePath("none");
+
+        content.setCreatedAt(LocalDateTime.now());
+
+        return repository.save(content);
+    }
+
     public List<Content> getAll() {
 
         return repository.findAll();

@@ -3,11 +3,13 @@ package com.klu.controller;
 import java.io.IOException;
 import java.util.List;
 
+import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestPart;
 import org.springframework.web.bind.annotation.RestController;
@@ -29,16 +31,33 @@ public class ContentController {
         this.contentService = contentService;
     }
 
-    @PostMapping("/upload")
+    @PostMapping(value = "/upload", consumes = MediaType.MULTIPART_FORM_DATA_VALUE)
     public Content upload(
             @Valid @RequestPart("content")
             ContentRequest request,
 
-            @RequestPart("file")
+            @RequestPart(value = "file", required = false)
             MultipartFile file)
             throws IOException {
 
+        if (file == null || file.isEmpty()) {
+            return contentService.create(request);
+        }
         return contentService.upload(request, file);
+    }
+
+    @PostMapping(value = "/upload", consumes = MediaType.APPLICATION_JSON_VALUE)
+    public Content uploadJson(
+            @Valid @RequestBody ContentRequest request) {
+
+        return contentService.create(request);
+    }
+
+    @PostMapping
+    public Content create(
+            @Valid @RequestBody ContentRequest request) {
+
+        return contentService.create(request);
     }
 
     @GetMapping
