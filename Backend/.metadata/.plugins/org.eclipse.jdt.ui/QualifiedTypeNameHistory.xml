@@ -1,11 +1,2 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<qualifiedTypeNameHistroy>
-    <fullyQualifiedTypeName name="jakarta.persistence.Table"/>
-    <fullyQualifiedTypeName name="jakarta.persistence.Id"/>
-    <fullyQualifiedTypeName name="jakarta.persistence.EnumType"/>
-    <fullyQualifiedTypeName name="com.klu.enums.Role"/>
-    <fullyQualifiedTypeName name="com.klu.entity.User"/>
-    <fullyQualifiedTypeName name="io.jsonwebtoken.io.IOException"/>
-    <fullyQualifiedTypeName name="io.jsonwebtoken.lang.Collections"/>
-    <fullyQualifiedTypeName name="jdk.jfr.ContentType"/>
-</qualifiedTypeNameHistroy>
+<qualifiedTypeNameHistroy/>

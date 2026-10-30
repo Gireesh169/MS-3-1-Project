@@ -20,4 +20,36 @@ public class ContentRequest {
 
     @NotNull(message = "Content type is required")
     private ContentType type;
+
+	public String getTitle() {
+		return title;
+	}
+
+	public void setTitle(String title) {
+		this.title = title;
+	}
+
+	public String getAuthor() {
+		return author;
+	}
+
+	public void setAuthor(String author) {
+		this.author = author;
+	}
+
+	public String getDescription() {
+		return description;
+	}
+
+	public void setDescription(String description) {
+		this.description = description;
+	}
+
+	public ContentType getType() {
+		return type;
+	}
+
+	public void setType(ContentType type) {
+		this.type = type;
+	}
 }

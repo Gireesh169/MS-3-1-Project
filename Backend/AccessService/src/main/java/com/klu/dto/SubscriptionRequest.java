@@ -14,4 +14,20 @@ public class SubscriptionRequest {
 
     @NotNull(message = "Plan type is required")
     private PlanType planType;
+
+	public String getUsername() {
+		return username;
+	}
+
+	public void setUsername(String username) {
+		this.username = username;
+	}
+
+	public PlanType getPlanType() {
+		return planType;
+	}
+
+	public void setPlanType(PlanType planType) {
+		this.planType = planType;
+	}
 }

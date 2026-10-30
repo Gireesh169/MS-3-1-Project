@@ -67,8 +67,10 @@ public class AuthService {
             return null;
         }
 
+        String role = user.getRole() != null ? user.getRole().name() : "USER";
         return jwtService.generateToken(
-                user.getUsername()
+                user.getUsername(),
+                role
         );
     }
 }
