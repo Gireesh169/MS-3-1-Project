@@ -74,19 +74,11 @@ In [`src/services/api.js`](src/services/api.js):
 // Point directly to Authentication Service:
 export const BASE_URL = "http://localhost:8081";
 
-<<<<<<< HEAD
 // Or point to Spring Cloud API Gateway (Port 8090):
 // export const BASE_URL = "http://localhost:8090";
 ```
 
 *(Note: Vite's dev server is pre-configured with reverse proxies for `/api`, `/content`, `/access`, and `/usage` routing directly to the API Gateway on port `8090`.)*
-=======
-// Or point to API Gateway once routing is ready:
-// export const BASE_URL = "http://localhost:8080";
-```
-
-*(Note: Vite's dev server is also pre-configured with a proxy for `/api` to avoid CORS issues.)*
->>>>>>> ac01a7e2003287589498a96922d12f091ddd2f03
 
 ---
 

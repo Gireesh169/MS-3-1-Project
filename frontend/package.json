@@ -9,7 +9,6 @@
     "preview": "vite preview"
   },
   "dependencies": {
-<<<<<<< HEAD
     "@react-three/drei": "^9.122.0",
     "@react-three/fiber": "^8.18.0",
     "axios": "^1.7.9",
@@ -20,12 +19,6 @@
     "react-router-dom": "^6.28.0",
     "recharts": "^3.10.1",
     "three": "^0.160.1"
-=======
-    "axios": "^1.7.9",
-    "react": "^18.3.1",
-    "react-dom": "^18.3.1",
-    "react-router-dom": "^6.28.0"
->>>>>>> ac01a7e2003287589498a96922d12f091ddd2f03
   },
   "devDependencies": {
     "@vitejs/plugin-react": "^4.3.4",
