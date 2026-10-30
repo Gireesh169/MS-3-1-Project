@@ -6,7 +6,6 @@ export default defineConfig({
   server: {
     port: 5173,
     open: false,
-<<<<<<< HEAD
     // Proxy API requests to Spring Cloud Gateway on port 8090
     proxy: {
       '/api': {
@@ -26,12 +25,6 @@ export default defineConfig({
       },
       '/usage': {
         target: 'http://localhost:8090',
-=======
-    // Proxy API requests during development to avoid CORS issues with the backend
-    proxy: {
-      '/api': {
-        target: 'http://localhost:8081',
->>>>>>> ac01a7e2003287589498a96922d12f091ddd2f03
         changeOrigin: true,
         secure: false,
       },
