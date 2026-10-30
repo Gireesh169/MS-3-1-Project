@@ -1,6 +1,10 @@
 import React from "react";
 import { Link } from "react-router-dom";
+<<<<<<< HEAD
 import { isLoggedIn } from "../services/authService";
+=======
+import { isLoggedIn } from "../services/api";
+>>>>>>> ac01a7e2003287589498a96922d12f091ddd2f03
 
 function NotFound() {
   const loggedIn = isLoggedIn();
